@@ -16,3 +16,5 @@ or
 pyuic -x ui_mainWindow.ui -o ui_mainWindow.py
 (or pyuic4 or pyuic5, whatever you have). 
 You should never manually edit the code in the .ui or corresponding .py because it will be overwritten when you edit with Qt Designer/Creator. 
+
+The Xcode project here is just a convenience to organize the .py files. You can edit the .py files in any text editor or IDE of your choosing. 
