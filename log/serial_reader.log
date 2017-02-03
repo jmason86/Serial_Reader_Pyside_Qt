@@ -167,3 +167,57 @@
 2017-02-02 22:12:29,083 INFO Opening port: /dev/cu.lpss-serial2
 2017-02-02 22:12:29,138 INFO Testing read on port: /dev/cu.lpss-serial2
 2017-02-02 22:12:29,138 INFO Test read on port was successful
+2017-02-03 10:35:33,271 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:35:33,327 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:35:33,328 INFO Test read on port was successful
+2017-02-03 10:39:51,075 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:39:51,130 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:39:51,131 INFO Test read on port was successful
+2017-02-03 10:41:35,877 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:41:35,933 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:41:35,933 INFO Test read on port was successful
+2017-02-03 10:42:25,084 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:42:25,139 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:42:25,139 INFO Test read on port was successful
+2017-02-03 10:42:45,733 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:42:45,789 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:42:45,789 INFO Test read on port was successful
+2017-02-03 10:45:10,743 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:45:10,801 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:45:10,801 INFO Test read on port was successful
+2017-02-03 10:47:21,411 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:47:21,466 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:47:21,467 INFO Test read on port was successful
+2017-02-03 10:47:49,688 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:47:49,742 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:47:49,742 INFO Test read on port was successful
+2017-02-03 10:48:35,001 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:48:35,057 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:48:35,058 INFO Test read on port was successful
+2017-02-03 10:51:49,076 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:51:49,131 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:51:49,131 INFO Test read on port was successful
+2017-02-03 10:52:13,634 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 10:52:13,690 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 10:52:13,690 INFO Test read on port was successful
+2017-02-03 11:23:45,333 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 11:23:45,390 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 11:23:45,390 INFO Test read on port was successful
+2017-02-03 11:24:15,398 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 11:24:15,453 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 11:24:15,453 INFO Test read on port was successful
+2017-02-03 11:24:34,490 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 11:24:34,546 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 11:24:34,546 INFO Test read on port was successful
+2017-02-03 11:26:55,163 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 11:26:55,219 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 11:26:55,219 INFO Test read on port was successful
+2017-02-03 11:27:22,052 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 11:27:22,107 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 11:27:22,107 INFO Test read on port was successful
+2017-02-03 11:29:07,725 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 11:29:07,780 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 11:29:07,780 INFO Test read on port was successful
+2017-02-03 11:32:20,293 INFO Opening port: /dev/cu.lpss-serial2
+2017-02-03 11:32:20,349 INFO Testing read on port: /dev/cu.lpss-serial2
+2017-02-03 11:32:20,350 INFO Test read on port was successful

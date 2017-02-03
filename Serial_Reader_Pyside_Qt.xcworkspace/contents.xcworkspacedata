@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "container:../Dropbox/Development/Python/Serial_Reader_Pyside_Qt/connect_serial_decode_kiss.py">
+      location = "group:connect_serial_decode_kiss.py">
+   </FileRef>
+   <FileRef
+      location = "group:serial_reader.py">
+   </FileRef>
+   <FileRef
+      location = "group:ui_mainWindow.py">
    </FileRef>
 </Workspace>

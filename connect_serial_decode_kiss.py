@@ -1,3 +1,7 @@
+"""Handle serial interface"""
+__authors__ = "Colden Rouleau, James Paul Mason"
+__contact__ = "jmason86@gmail.com"
+
 import sys
 import time
 import serial
@@ -23,10 +27,6 @@ class connect_serial_decode_kiss():
     def close(self):
         self.log.info("Closing ground station link")
         self.ser.close
-
-    def hello_world(self):
-        self.log.info("Sending Hello World")
-        self.ser.write(b'Hello World\r\n')
 
     def read(self):
         data = []
