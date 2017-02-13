@@ -9,14 +9,15 @@ from PySide.QtCore import *
 from ui_mainWindow import Ui_MainWindow
 import connect_serial_decode_kiss
 from PySide import QtCore, QtGui
-import time
+import time, datetime
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.setupUi(self)
         self.assignWidgets()
-        self.log = self.createLog()
+        self.setupOutputLog() # Log of serial data for user
+        self.log = self.createLog() # Debug log
         self.show()
     
     def assignWidgets(self):
@@ -39,28 +40,30 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.connectedPort = connectedPort
             self.label_connected.setText(QtGui.QApplication.translate("MainWindow", "Connected: Yes", None, QtGui.QApplication.UnicodeUTF8))
             palette = QtGui.QPalette()
-            palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58))
+            palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58)) # Green
             self.label_connected.setPalette(palette)
 
     def startReadClicked(self):
         # Update the GUI reading toggle
         self.label_reading.setText(QtGui.QApplication.translate("MainWindow", "Reading", None, QtGui.QApplication.UnicodeUTF8))
         palette = QtGui.QPalette()
-        palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58))
+        palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58)) # Green
         self.label_reading.setPalette(palette)
+        
+        print self.connectedPort
 
         # Infinite loop to read the serial port and display the data in the GUI
         self.userStopped = False
         index = 0
         while(True):
-            #    serialData = self.connectedPort.read()
-            self.label_serialOutput.setText(str(index))
-            index += 1
+            serialData = self.connectedPort.read()
+            if len(serialData) > 0:
+                self.textBrowser_serialOutput.append(str(serialData))
+        
             time.sleep(0.05)
             QtGui.qApp.processEvents()
             if self.userStopped:
                 break
-            #self.label_serialOutput.setText(serialData)
     
     def stopReadClicked(self):
         self.userStopped = True
@@ -68,16 +71,39 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # Update the GUI reading toggle
         self.label_reading.setText(QtGui.QApplication.translate("MainWindow", "Not Reading", None, QtGui.QApplication.UnicodeUTF8))
         palette = QtGui.QPalette()
-        palette.setColor(QtGui.QPalette.Foreground, QColor(242, 86, 77))
+        palette.setColor(QtGui.QPalette.Foreground, QColor(242, 86, 77)) # Red
         self.label_reading.setPalette(palette)
 
     def saveLogToggled(self):
         if self.checkBox_saveLog.isChecked():
-            self.label_savingToLogFile.setText("Saving to log file:" + ) # TODO: Pickup here. Also need to default with a filename on initialization. 
+            # TODO: Create new log file
+            serialOutputLog = logging.getLogger('serial_output')
+            filename = 'output/' + datetime.datetime.now().isoformat() + '.txt'
+            handler = logging.FileHandler(filename)
+            serialOutputLog.addHandler(handler)
+            self.serialOutputLog = serialOutputLog
+            
+            # Update the GUI for the log file - is saving
+            self.label_savingToLogFile.setText("Saving to log file: " + filename)
+            palette = QtGui.QPalette()
+            palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58)) # Green
+            self.label_savingToLogFile.setPalette(palette)
+        else:
+            # Update the GUI for the log file - not saving
+            self.label_savingToLogFile.setText("Not saving to log file")
+            palette = QtGui.QPalette()
+            palette.setColor(QtGui.QPalette.Foreground, QColor(242, 86, 77)) # Red
+            self.label_savingToLogFile.setPalette(palette)
+
+    def setupOutputLog(self):
+        serialOutputLog = logging.getLogger('serial_output')
+        handler = logging.FileHandler('output/' + datetime.datetime.now().isoformat() + '.txt')
+        serialOutputLog.addHandler(handler)
+        self.serialOutputLog = serialOutputLog
 
     def createLog(self):
-        log = logging.getLogger('serial_reader')
-        handler = logging.FileHandler('log/serial_reader.log')
+        log = logging.getLogger('serial_reader_debug')
+        handler = logging.FileHandler('log/serial_reader_debug.log')
         formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
         handler.setFormatter(formatter)
         log.addHandler(handler)
