@@ -49,16 +49,18 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         palette = QtGui.QPalette()
         palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58)) # Green
         self.label_reading.setPalette(palette)
-        
-        print self.connectedPort
 
-        # Infinite loop to read the serial port and display the data in the GUI
+        # Infinite loop to read the serial port and display the data in the GUI and optionally write to output file
         self.userStopped = False
-        index = 0
         while(True):
             serialData = self.connectedPort.read()
             if len(serialData) > 0:
                 self.textBrowser_serialOutput.append(str(serialData))
+            
+                if self.checkBox_saveLog.isChecked:
+                    serialOutputLog = open(self.serialOutputFilename, 'a') # append to existing file
+                    serialOutputLog.write(str(serialData))
+                    serialOutputLog.closed
         
             time.sleep(0.05)
             QtGui.qApp.processEvents()
@@ -76,18 +78,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def saveLogToggled(self):
         if self.checkBox_saveLog.isChecked():
-            # TODO: Create new log file
-            serialOutputLog = logging.getLogger('serial_output')
-            filename = 'output/' + datetime.datetime.now().isoformat() + '.txt'
-            handler = logging.FileHandler(filename)
-            serialOutputLog.addHandler(handler)
-            self.serialOutputLog = serialOutputLog
-            
-            # Update the GUI for the log file - is saving
-            self.label_savingToLogFile.setText("Saving to log file: " + filename)
-            palette = QtGui.QPalette()
-            palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58)) # Green
-            self.label_savingToLogFile.setPalette(palette)
+            # Create new log file
+            self.serialOutputFilename = 'output/' + datetime.datetime.now().isoformat() + '.txt'
+            with open(self.serialOutputFilename, 'w') as serialOutputLog:
+                # Update the GUI for the log file - is saving
+                self.label_savingToLogFile.setText("Saving to log file: " + self.serialOutputFilename)
+                palette = QtGui.QPalette()
+                palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58)) # Green
+                self.label_savingToLogFile.setPalette(palette)
+            serialOutputLog.closed
         else:
             # Update the GUI for the log file - not saving
             self.label_savingToLogFile.setText("Not saving to log file")
@@ -96,10 +95,14 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.label_savingToLogFile.setPalette(palette)
 
     def setupOutputLog(self):
-        serialOutputLog = logging.getLogger('serial_output')
-        handler = logging.FileHandler('output/' + datetime.datetime.now().isoformat() + '.txt')
-        serialOutputLog.addHandler(handler)
-        self.serialOutputLog = serialOutputLog
+        self.serialOutputFilename = 'output/' + datetime.datetime.now().isoformat() + '.txt'
+        with open(self.serialOutputFilename, 'w') as serialOutputLog:
+            # Update the GUI for the log file - is saving
+            self.label_savingToLogFile.setText("Saving to log file: " + self.serialOutputFilename)
+            palette = QtGui.QPalette()
+            palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58)) # Green
+            self.label_savingToLogFile.setPalette(palette)
+        serialOutputLog.closed
 
     def createLog(self):
         log = logging.getLogger('serial_reader_debug')

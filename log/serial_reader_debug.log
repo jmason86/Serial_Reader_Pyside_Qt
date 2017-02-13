@@ -1,0 +1,9 @@
+2017-02-13 12:01:03,052 INFO Opening port: /dev/cu.usbserial-FTVGYHAD
+2017-02-13 12:01:04,554 INFO Testing read on port: /dev/cu.usbserial-FTVGYHAD
+2017-02-13 12:01:04,555 INFO Test read on port was successful
+2017-02-13 12:15:49,813 INFO Opening port: /dev/cu.usbserial-FTVGYHAD
+2017-02-13 12:15:51,315 INFO Testing read on port: /dev/cu.usbserial-FTVGYHAD
+2017-02-13 12:15:51,315 INFO Test read on port was successful
+2017-02-13 12:18:19,686 INFO Opening port: /dev/cu.usbserial-FTVGYHAD
+2017-02-13 12:18:21,188 INFO Testing read on port: /dev/cu.usbserial-FTVGYHAD
+2017-02-13 12:18:21,189 INFO Test read on port was successful
