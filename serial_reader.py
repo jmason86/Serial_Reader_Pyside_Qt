@@ -60,6 +60,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             serialData = self.connectedPort.read()
             if len(serialData) > 0:
                 self.textBrowser_serialOutput.append(str(serialData))
+                self.textBrowser_serialOutput.verticalScrollBar().setValue(self.textBrowser_serialOutput.verticalScrollBar().maximum())
                 
                 if self.checkBox_saveLog.isChecked:
                     serialOutputLog = open(self.serialOutputFilename, 'a') # append to existing file
