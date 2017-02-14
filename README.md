@@ -5,7 +5,7 @@ To run, simply do:
 python serial_reader.py 
 
 This should open up the GUI. Specify the your port of interest and a baud rate then click connect. 
-In the output panel, the connected indicator should turn green. Once you start streaming data into the serial port, it should show up in the output panel. 
+In the output panel, the connected indicator should turn green. Click the start read button and once you start streaming data into the serial port, it should show up in the output panel. It will also output to a log file as indicated unless you uncheck the save log checkbox. 
 
 ![Alt text](/screenshots/Screenshot 2017-02-13 18.35.34.png?raw=true "Example Screenshot")
 
