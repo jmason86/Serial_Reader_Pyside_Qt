@@ -7,7 +7,7 @@ python serial_reader.py
 This should open up the GUI. Specify the your port of interest and a baud rate then click connect. 
 In the output panel, the connected indicator should turn green. Once you start streaming data into the serial port, it should show up in the output panel. 
 
-![Alt text](/screenshots/Screenshot 2017-02-02 22.09.19 10.13.45 PM.png?raw=true "Example Screenshot")
+![Alt text](/screenshots/Screenshot 2017-02-13 18.35.34.png?raw=true "Example Screenshot")
 
 To edit the .ui file, you should use Qt Designer (comes with anaconda) or Qt Creator (comes with install of Qt). 
 To convert the .ui to the .py, do: 
