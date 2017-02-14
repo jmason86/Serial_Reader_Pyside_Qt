@@ -18,6 +18,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.assignWidgets()
         self.setupOutputLog() # Log of serial data for user
         self.log = self.createLog() # Debug log
+        self.serialReadThread = SerialReadThread(self.readSerial, self.stopReadClicked)
         self.show()
     
     def assignWidgets(self):
@@ -49,27 +50,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         palette = QtGui.QPalette()
         palette.setColor(QtGui.QPalette.Foreground, QColor(55, 195, 58)) # Green
         self.label_reading.setPalette(palette)
-
+        
+        # Start the dedicated thread reading
+        self.serialReadThread.start()
+        
+    def readSerial(self):
         # Infinite loop to read the serial port and display the data in the GUI and optionally write to output file
-        self.userStopped = False
         while(True):
             serialData = self.connectedPort.read()
             if len(serialData) > 0:
                 self.textBrowser_serialOutput.append(str(serialData))
-            
+                
                 if self.checkBox_saveLog.isChecked:
                     serialOutputLog = open(self.serialOutputFilename, 'a') # append to existing file
                     serialOutputLog.write(str(serialData))
                     serialOutputLog.closed
-        
-            time.sleep(0.05)
-            QtGui.qApp.processEvents()
-            if self.userStopped:
-                break
-    
+
     def stopReadClicked(self):
-        self.userStopped = True
-    
+        print "Stop clicked"
         # Update the GUI reading toggle
         self.label_reading.setText(QtGui.QApplication.translate("MainWindow", "Not Reading", None, QtGui.QApplication.UnicodeUTF8))
         palette = QtGui.QPalette()
@@ -112,6 +110,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         log.addHandler(handler)
         log.setLevel(logging.DEBUG)
         return log
+
+class SerialReadThread(QtCore.QThread):
+    def __init__(self, target, slotOnFinished = None):
+        super(SerialReadThread, self).__init__()
+        self.target = target
+        if slotOnFinished:
+            self.finished.connect(slotOnFinished)
+
+    def run(self, *args, **kwargs):
+        self.target(*args, **kwargs)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
