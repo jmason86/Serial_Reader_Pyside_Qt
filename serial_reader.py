@@ -68,7 +68,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                     serialOutputLog.closed
 
     def stopReadClicked(self):
-        print "Stop clicked"
         # Update the GUI reading toggle
         self.label_reading.setText(QtGui.QApplication.translate("MainWindow", "Not Reading", None, QtGui.QApplication.UnicodeUTF8))
         palette = QtGui.QPalette()
