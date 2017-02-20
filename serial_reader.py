@@ -3,6 +3,7 @@ __author__ = "James Paul Mason"
 __contact__ = "jmason86@gmail.com"
 
 import sys
+import os
 import logging
 from PySide.QtGui import *
 from PySide.QtCore import *
@@ -59,7 +60,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         while(True):
             serialData = self.connectedPort.read()
             if len(serialData) > 0:
-                self.textBrowser_serialOutput.append(str(serialData))
+                formattedSerialData = ' '.join(map(lambda x:x.encode('hex'),serialData))
+                self.textBrowser_serialOutput.append(formattedSerialData)
                 self.textBrowser_serialOutput.verticalScrollBar().setValue(self.textBrowser_serialOutput.verticalScrollBar().maximum())
                 
                 if self.checkBox_saveLog.isChecked:
@@ -77,7 +79,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def saveLogToggled(self):
         if self.checkBox_saveLog.isChecked():
             # Create new log file
-            self.serialOutputFilename = 'output/' + datetime.datetime.now().isoformat() + '.txt'
+            self.serialOutputFilename = 'JPM_serial_reader/output/' + datetime.datetime.now().isoformat() + '.txt'
             with open(self.serialOutputFilename, 'w') as serialOutputLog:
                 # Update the GUI for the log file - is saving
                 self.label_savingToLogFile.setText("Saving to log file: " + self.serialOutputFilename)
@@ -93,7 +95,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.label_savingToLogFile.setPalette(palette)
 
     def setupOutputLog(self):
-        self.serialOutputFilename = 'output/' + datetime.datetime.now().isoformat() + '.txt'
+        if not os.path.exists("JPM_serial_reader/output"):
+            os.makedirs("JPM_serial_reader/output")
+        self.serialOutputFilename = "JPM_serial_reader/output/" + datetime.datetime.now().isoformat() + ".txt"
         with open(self.serialOutputFilename, 'w') as serialOutputLog:
             # Update the GUI for the log file - is saving
             self.label_savingToLogFile.setText("Saving to log file: " + self.serialOutputFilename)
@@ -103,8 +107,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         serialOutputLog.closed
 
     def createLog(self):
+        if not os.path.exists("JPM_serial_reader/log"):
+            os.makedirs("JPM_serial_reader/log")
         log = logging.getLogger('serial_reader_debug')
-        handler = logging.FileHandler('log/serial_reader_debug.log')
+        handler = logging.FileHandler('JPM_serial_reader/log/serial_reader_debug.log')
         formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
         handler.setFormatter(formatter)
         log.addHandler(handler)
@@ -122,6 +128,14 @@ class SerialReadThread(QtCore.QThread):
         self.target(*args, **kwargs)
 
 if __name__ == '__main__':
+    log = logging.getLogger('serial_reader_debug')
+    handler = logging.FileHandler('JPM_serial_reader/log/serial_reader_debug.log')
+    formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
+    handler.setFormatter(formatter)
+    log.addHandler(handler)
+    log.setLevel(logging.DEBUG)
+    log.info("Launched app")
+    
     app = QApplication(sys.argv)
     mainWin = MainWindow()
     ret = app.exec_()

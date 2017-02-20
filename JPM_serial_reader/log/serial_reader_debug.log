@@ -1,0 +1,65 @@
+2017-02-15 23:08:49,864 INFO Starting init of serial reader
+2017-02-15 23:09:30,438 INFO Opening port: /dev/cu.usbserial-FTVGYHAD
+2017-02-18 15:52:48,917 INFO Launched app
+2017-02-18 16:43:25,563 INFO Launched app
+2017-02-18 16:53:58,619 INFO Launched app
+2017-02-18 17:17:19,861 INFO Launched app
+2017-02-18 17:17:47,756 INFO Launched app
+2017-02-18 17:18:06,612 INFO Launched app
+2017-02-18 17:18:50,141 INFO Launched app
+2017-02-20 11:12:18,607 INFO Launched app
+2017-02-20 11:12:24,675 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:12:24,675 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:12:26,177 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:12:26,177 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:12:26,177 INFO Test read on port was successful
+2017-02-20 11:12:26,177 INFO Test read on port was successful
+2017-02-20 11:22:49,379 INFO Launched app
+2017-02-20 11:23:01,096 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:23:01,096 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:23:02,598 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:23:02,598 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:23:02,598 INFO Test read on port was successful
+2017-02-20 11:23:02,598 INFO Test read on port was successful
+2017-02-20 11:25:24,617 INFO Launched app
+2017-02-20 11:25:35,457 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:25:35,457 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:25:36,959 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:25:36,959 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:25:36,960 INFO Test read on port was successful
+2017-02-20 11:25:36,960 INFO Test read on port was successful
+2017-02-20 11:27:05,334 INFO Launched app
+2017-02-20 11:27:14,107 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:27:14,107 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:27:15,608 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:27:15,608 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:27:15,609 INFO Test read on port was successful
+2017-02-20 11:27:15,609 INFO Test read on port was successful
+2017-02-20 11:31:00,197 INFO Launched app
+2017-02-20 11:31:09,500 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:31:09,500 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:31:11,002 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:31:11,002 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:31:11,002 INFO Test read on port was successful
+2017-02-20 11:31:11,002 INFO Test read on port was successful
+2017-02-20 11:32:26,546 INFO Launched app
+2017-02-20 11:32:33,540 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:32:33,540 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:32:35,042 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:32:35,042 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:32:35,043 INFO Test read on port was successful
+2017-02-20 11:32:35,043 INFO Test read on port was successful
+2017-02-20 11:47:12,244 INFO Launched app
+2017-02-20 11:47:22,990 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:47:22,990 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:47:24,491 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:47:24,491 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:47:24,491 INFO Test read on port was successful
+2017-02-20 11:47:24,491 INFO Test read on port was successful
+2017-02-20 11:48:16,537 INFO Launched app
+2017-02-20 11:48:19,964 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:48:19,964 INFO Opening port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:48:21,466 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:48:21,466 INFO Testing read on port: /dev/cu.usbserial-FTYT1ZBX
+2017-02-20 11:48:21,466 INFO Test read on port was successful
+2017-02-20 11:48:21,466 INFO Test read on port was successful
